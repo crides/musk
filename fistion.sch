@@ -47,38 +47,12 @@ F 3 "~" H 3900 4450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push KEY1
-U 1 1 5FAD17EA
-P 4750 3450
-F 0 "KEY1" H 4750 3550 50  0000 C CNN
-F 1 "SW_Push" H 4750 3400 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 4750 3650 50  0001 C CNN
-F 3 "~" H 4750 3650 50  0001 C CNN
-	1    4750 3450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push KEY6
-U 1 1 5FAD3B43
-P 4750 3700
-F 0 "KEY6" H 4750 3800 50  0000 C CNN
-F 1 "SW_Push" H 4750 3650 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 4750 3900 50  0001 C CNN
-F 3 "~" H 4750 3900 50  0001 C CNN
-	1    4750 3700
-	1    0    0    -1  
-$EndComp
-Text GLabel 4950 3450 2    50   Input ~ 0
-R1C1
-Text GLabel 4950 3700 2    50   Input ~ 0
-R2C1
-$Comp
 L Switch:SW_Push KEY2
 U 1 1 5FAE06DA
 P 5500 3450
 F 0 "KEY2" H 5500 3550 50  0000 C CNN
 F 1 "SW_Push" H 5500 3400 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 5500 3650 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 5500 3650 50  0001 C CNN
 F 3 "~" H 5500 3650 50  0001 C CNN
 	1    5500 3450
 	1    0    0    -1  
@@ -89,7 +63,7 @@ U 1 1 5FAE06E0
 P 5500 3700
 F 0 "KEY7" H 5500 3800 50  0000 C CNN
 F 1 "SW_Push" H 5500 3650 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 5500 3900 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 5500 3900 50  0001 C CNN
 F 3 "~" H 5500 3900 50  0001 C CNN
 	1    5500 3700
 	1    0    0    -1  
@@ -104,7 +78,7 @@ U 1 1 5FAE3778
 P 6250 3450
 F 0 "KEY3" H 6250 3550 50  0000 C CNN
 F 1 "SW_Push" H 6250 3400 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 6250 3650 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 6250 3650 50  0001 C CNN
 F 3 "~" H 6250 3650 50  0001 C CNN
 	1    6250 3450
 	1    0    0    -1  
@@ -115,7 +89,7 @@ U 1 1 5FAE377E
 P 6250 3700
 F 0 "KEY8" H 6250 3800 50  0000 C CNN
 F 1 "SW_Push" H 6250 3650 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 6250 3900 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 6250 3900 50  0001 C CNN
 F 3 "~" H 6250 3900 50  0001 C CNN
 	1    6250 3700
 	1    0    0    -1  
@@ -130,7 +104,7 @@ U 1 1 5FAE576B
 P 7000 3450
 F 0 "KEY4" H 7000 3550 50  0000 C CNN
 F 1 "SW_Push" H 7000 3400 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 7000 3650 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 7000 3650 50  0001 C CNN
 F 3 "~" H 7000 3650 50  0001 C CNN
 	1    7000 3450
 	1    0    0    -1  
@@ -141,7 +115,7 @@ U 1 1 5FAE5771
 P 7000 3700
 F 0 "KEY9" H 7000 3800 50  0000 C CNN
 F 1 "SW_Push" H 7000 3650 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 7000 3900 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 7000 3900 50  0001 C CNN
 F 3 "~" H 7000 3900 50  0001 C CNN
 	1    7000 3700
 	1    0    0    -1  
@@ -156,7 +130,7 @@ U 1 1 5FAEBF7F
 P 7750 3450
 F 0 "KEY5" H 7750 3550 50  0000 C CNN
 F 1 "SW_Push" H 7750 3400 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 7750 3650 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 7750 3650 50  0001 C CNN
 F 3 "~" H 7750 3650 50  0001 C CNN
 	1    7750 3450
 	1    0    0    -1  
@@ -167,7 +141,7 @@ U 1 1 5FAEBF85
 P 7750 3700
 F 0 "KEY10" H 7750 3800 50  0000 C CNN
 F 1 "SW_Push" H 7750 3650 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 7750 3900 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 7750 3900 50  0001 C CNN
 F 3 "~" H 7750 3900 50  0001 C CNN
 	1    7750 3700
 	1    0    0    -1  
@@ -187,7 +161,7 @@ F 3 "" H 7550 3700 50  0001 C CNN
 	1    7550 3700
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 4500 0    50   Input ~ 0
+Text GLabel 1950 4600 0    50   Input ~ 0
 R2C4
 Text GLabel 1950 4400 0    50   Input ~ 0
 R1C5
@@ -195,8 +169,6 @@ Text GLabel 1950 4300 0    50   Input ~ 0
 R2C5
 Text GLabel 4050 3900 2    50   Input ~ 0
 3V3
-Wire Wire Line
-	4550 3700 4550 3450
 Wire Wire Line
 	5300 3450 5300 3700
 Wire Wire Line
@@ -227,18 +199,6 @@ F 3 "" H 3350 3600 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND #PWR05
-U 1 1 5FB37BC5
-P 4550 3700
-F 0 "#PWR05" H 4550 3450 50  0001 C CNN
-F 1 "GND" H 4555 3527 50  0000 C CNN
-F 2 "" H 4550 3700 50  0001 C CNN
-F 3 "" H 4550 3700 50  0001 C CNN
-	1    4550 3700
-	1    0    0    -1  
-$EndComp
-Connection ~ 4550 3700
-$Comp
 L power:GND #PWR06
 U 1 1 5FB38297
 P 5300 3700
@@ -251,13 +211,13 @@ F 3 "" H 5300 3700 50  0001 C CNN
 $EndComp
 Connection ~ 5300 3700
 Connection ~ 6050 3700
-Text GLabel 3350 4000 2    50   Input ~ 0
+Text GLabel 3350 4200 2    50   Input ~ 0
 R1C3
 Text GLabel 3350 3800 2    50   Input ~ 0
 3V3
-Text GLabel 1950 4000 0    50   Input ~ 0
+Text GLabel 1950 4100 0    50   Input ~ 0
 SCLK
-Text GLabel 1950 3900 0    50   Input ~ 0
+Text GLabel 1950 4200 0    50   Input ~ 0
 MOSI
 $Comp
 L power:GND #PWR02
@@ -307,18 +267,10 @@ Text GLabel 1950 3600 0    50   Input ~ 0
 SCL
 Text GLabel 1950 3500 0    50   Input ~ 0
 SDA
-Wire Wire Line
-	7200 4350 7500 4350
-Text GLabel 1950 4100 0    50   Input ~ 0
+Text GLabel 1950 4000 0    50   Input ~ 0
 MISO
-Text GLabel 1950 4200 0    50   Input ~ 0
-CS
 Wire Wire Line
 	3700 3700 3350 3700
-Text GLabel 3350 4500 2    50   Input ~ 0
-R2C1
-Text GLabel 3350 4300 2    50   Input ~ 0
-R1C1
 $Comp
 L nice_nano:nice_nano U1
 U 1 1 5FBB49DC
@@ -330,17 +282,13 @@ F 3 "" V 3700 1550 60  0001 C CNN
 	1    2650 4050
 	1    0    0    -1  
 $EndComp
-Text GLabel 3350 4200 2    50   Input ~ 0
-R1C2
-Text GLabel 3350 4600 2    50   Input ~ 0
-R2C2
 $Comp
 L Switch:SW_Push KEY11
 U 1 1 5FC396A4
 P 6250 3950
 F 0 "KEY11" H 6250 4050 50  0000 C CNN
 F 1 "SW_Push" H 6250 3900 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 6250 4150 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 6250 4150 50  0001 C CNN
 F 3 "~" H 6250 4150 50  0001 C CNN
 	1    6250 3950
 	1    0    0    -1  
@@ -367,7 +315,7 @@ U 1 1 5FC3A9F4
 P 7000 3950
 F 0 "KEY12" H 7000 4050 50  0000 C CNN
 F 1 "SW_Push" H 7000 3900 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 7000 4150 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 7000 4150 50  0001 C CNN
 F 3 "~" H 7000 4150 50  0001 C CNN
 	1    7000 3950
 	1    0    0    -1  
@@ -388,11 +336,9 @@ F 3 "" H 6800 3950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 6800 3950
-Text GLabel 3350 4100 2    50   Input ~ 0
+Text GLabel 3350 4300 2    50   Input ~ 0
 R2C3
-Text GLabel 2400 5100 3    50   Input ~ 0
-R1C4
-Text GLabel 1950 4600 0    50   Input ~ 0
+Text GLabel 1950 4500 0    50   Input ~ 0
 R3C4
 Text GLabel 3350 4400 2    50   Input ~ 0
 R3C3
@@ -402,20 +348,17 @@ Wire Wire Line
 	5450 5150 5950 5150
 Wire Wire Line
 	5450 4450 6350 4450
-Connection ~ 5950 5150
 $Comp
 L Switch:SW_Push KEY14
 U 1 1 5FAE06E6
 P 6150 5050
 F 0 "KEY14" H 6150 5150 50  0000 C CNN
 F 1 "SW_Push" H 6150 5000 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 6150 5250 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 6150 5250 50  0001 C CNN
 F 3 "~" H 6150 5250 50  0001 C CNN
 	1    6150 5050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6350 4450 6650 4450
 Connection ~ 6350 4450
 $Comp
 L Connector_Generic:Conn_01x06 J2
@@ -439,46 +382,20 @@ F 3 "~" H 8200 4700 50  0001 C CNN
 	1    8200 4700
 	1    0    0    -1  
 $EndComp
-Text GLabel 6350 4750 0    50   Input ~ 0
-thumb_scl
-Wire Wire Line
-	6850 4750 7200 4750
-Wire Wire Line
-	6850 4700 6850 4750
-Wire Wire Line
-	6750 4700 6850 4700
-Wire Wire Line
-	6750 4650 6750 4700
-Wire Wire Line
-	6350 4650 6750 4650
-Wire Wire Line
-	6800 4650 7200 4650
-Wire Wire Line
-	6800 4750 6800 4650
-Wire Wire Line
-	6350 4750 6800 4750
-Wire Wire Line
-	7500 4350 7500 5150
 Wire Wire Line
 	5450 4450 5450 5050
-Wire Wire Line
-	7200 4450 7200 4350
-Wire Wire Line
-	6350 4550 7200 4550
-Wire Wire Line
-	5950 5150 7500 5150
 Connection ~ 5450 5050
 Wire Wire Line
 	6350 5050 6350 4950
 $Comp
 L Connector_Generic:Conn_01x04 J1
 U 1 1 5FA974ED
-P 7400 4550
-F 0 "J1" V 7272 4730 50  0000 L CNN
-F 1 "Conn_01x04" H 7000 4250 50  0000 L CNN
-F 2 "steno:OLED" H 7400 4550 50  0001 C CNN
-F 3 "~" H 7400 4550 50  0001 C CNN
-	1    7400 4550
+P 7500 5350
+F 0 "J1" V 7372 5530 50  0000 L CNN
+F 1 "Conn_01x04" H 7100 5050 50  0000 L CNN
+F 2 "steno:OLED" H 7500 5350 50  0001 C CNN
+F 3 "~" H 7500 5350 50  0001 C CNN
+	1    7500 5350
 	1    0    0    -1  
 $EndComp
 Text GLabel 8000 4800 0    50   Input ~ 0
@@ -495,8 +412,6 @@ Text GLabel 6350 4950 2    50   Input ~ 0
 thumb_R3C2
 Text GLabel 6350 4850 2    50   Input ~ 0
 thumb_R3C1
-Text GLabel 6350 4650 0    50   Input ~ 0
-thumb_sda
 Text GLabel 6650 4550 2    50   Input ~ 0
 thumb_vcc
 Text GLabel 5050 5000 2    50   Input ~ 0
@@ -580,7 +495,7 @@ U 1 1 5FAD41BB
 P 5650 5050
 F 0 "KEY13" H 5650 5150 50  0000 C CNN
 F 1 "SW_Push" H 5650 5000 50  0000 C CNN
-F 2 "lib:Kailh_PG1232" H 5650 5250 50  0001 C CNN
+F 2 "Keebio-Parts:Kailh-PG1350-1u-reversible-No-Clickhole" H 5650 5250 50  0001 C CNN
 F 3 "~" H 5650 5250 50  0001 C CNN
 	1    5650 5050
 	1    0    0    -1  
@@ -606,7 +521,7 @@ U 1 1 5FC28AE8
 P 3400 5150
 F 0 "J4" H 3480 5142 50  0000 L CNN
 F 1 "Conn_01x02" H 3480 5051 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 3400 5150 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3400 5150 50  0001 C CNN
 F 3 "~" H 3400 5150 50  0001 C CNN
 	1    3400 5150
 	1    0    0    -1  
@@ -626,4 +541,78 @@ F 3 "" H 3200 5150 50  0001 C CNN
 	1    3200 5150
 	0    1    1    0   
 $EndComp
+Text GLabel 1950 3900 0    50   Input ~ 0
+CS
+$Comp
+L Connector_Generic:Conn_01x05 J5
+U 1 1 5FDD2425
+P 7550 4650
+F 0 "J5" H 7630 4692 50  0000 L CNN
+F 1 "Conn_01x05" H 7630 4601 50  0000 L CNN
+F 2 "fistion:trackball" H 7550 4650 50  0001 C CNN
+F 3 "~" H 7550 4650 50  0001 C CNN
+	1    7550 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 4550 6350 4550
+$Comp
+L power:GND #PWR0103
+U 1 1 5FE07467
+P 7300 5250
+F 0 "#PWR0103" H 7300 5000 50  0001 C CNN
+F 1 "GND" V 7200 5300 50  0000 R CNN
+F 2 "" H 7300 5250 50  0001 C CNN
+F 3 "" H 7300 5250 50  0001 C CNN
+	1    7300 5250
+	0    1    1    0   
+$EndComp
+Text GLabel 7300 5350 0    50   Input ~ 0
+3V3
+Text GLabel 7300 5450 0    50   Input ~ 0
+SCL
+Text GLabel 7300 5550 0    50   Input ~ 0
+SDA
+Text GLabel 6350 4650 0    50   Input ~ 0
+thumb_sda
+Text GLabel 6350 4750 0    50   Input ~ 0
+thumb_scl
+Wire Wire Line
+	6350 4750 6800 4750
+Wire Wire Line
+	6350 4650 6750 4650
+Wire Wire Line
+	6750 4650 6750 4700
+Wire Wire Line
+	6850 4700 6850 4750
+Wire Wire Line
+	6750 4700 6850 4700
+Wire Wire Line
+	6800 4750 6800 4650
+Text GLabel 7350 4850 0    50   Input ~ 0
+thumb_vcc
+Wire Wire Line
+	6800 4650 7350 4650
+Wire Wire Line
+	6850 4750 7350 4750
+Wire Wire Line
+	6350 4450 7350 4450
+Text Notes 4350 5900 0    50   ~ 0
+- Add power switch or use lock combo
+Text Notes 4350 6000 0    50   ~ 0
+- Change back to normal chocs
+Text Notes 4350 6100 0    50   ~ 0
+- Use no-MCU trackball breakout or Ci(r)que touchpads
+Text Notes 4350 6200 0    50   ~ 0
+- Remove bottom 2 switches?
+Text Notes 4350 6300 0    50   ~ 0
+- Move palm joint down for more finger space?
+Text Notes 4350 6400 0    50   ~ 0
+- Extend palm piece for mounting
+Text GLabel 3350 4600 2    50   Input ~ 0
+R2C2
+Text GLabel 2400 5100 3    50   Input ~ 0
+R1C4
+Text GLabel 3350 4500 2    50   Input ~ 0
+R1C2
 $EndSCHEMATC

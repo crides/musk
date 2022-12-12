@@ -1,4 +1,4 @@
-18964248841704617
+19169391089933006
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -55430,8 +55430,8 @@ Kailh-PG1350-1u-No-Clickhole
 
 
 0
-4
-4
+2
+2
 Keebio-Parts
 Kailh-PG1350-1u-NoLED
 
@@ -55451,8 +55451,8 @@ Kailh-PG1350-1u-reversible-No-Clickhole
 
 
 0
-5
-4
+3
+2
 Keebio-Parts
 Kailh-PG1350-1u-reversible-flip
 
@@ -82821,15 +82821,22 @@ thumb-palm
 
 
 0
-30
+6
 6
 fistion
 thumb-thumb
 
 
 0
-54
+30
 6
+fistion
+trackball
+
+
+0
+5
+5
 lib
 Holyiot_18010
 
@@ -82851,24 +82858,3 @@ nice_nano
 0
 27
 27
-steno
-LCD2.2in
-
-
-0
-10
-10
-steno
-OLED
-
-
-0
-4
-4
-steno
-SOIC-8
-
-
-0
-8
-8
