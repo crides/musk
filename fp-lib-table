@@ -1,6 +1,8 @@
 (fp_lib_table
-  (lib (name lib)(type KiCad)(uri ${KIPRJMOD}/lib)(options "")(descr ""))
-  (lib (name nice-nano-kicad)(type KiCad)(uri ${KIPRJMOD}/lib/nice-nano-kicad)(options "")(descr ""))
-  (lib (name fistion)(type KiCad)(uri ${KIPRJMOD}/lib/fistion.pretty)(options "")(descr ""))
-  (lib (name Keebio-Parts)(type KiCad)(uri ${KIPRJMOD}/lib/Keebio-Parts.pretty)(options "")(descr ""))
+  (lib (name "Keebio-Parts")(type "KiCad")(uri "${KIPRJMOD}/Keebio-Parts.pretty")(options "")(descr ""))
+  (lib (name "display")(type "KiCad")(uri "${KIPRJMOD}/kleeb/display.pretty")(options "")(descr ""))
+  (lib (name "mcu")(type "KiCad")(uri "${KIPRJMOD}/kleeb/mcu.pretty")(options "")(descr ""))
+  (lib (name "misc")(type "KiCad")(uri "${KIPRJMOD}/kleeb/misc.pretty")(options "")(descr ""))
+  (lib (name "switch")(type "KiCad")(uri "${KIPRJMOD}/kleeb/switch.pretty")(options "")(descr ""))
+  (lib (name "pg1232")(type "KiCad")(uri "${KIPRJMOD}/kleeb/pg1232.pretty")(options "")(descr ""))
 )
