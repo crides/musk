@@ -123,7 +123,7 @@
         0.1524,
         0.2,
         0.254,
-        0.508
+        0.381
       ],
       "via_dimensions": [
         {
@@ -404,7 +404,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "fusion.step",
+      "step": "fistion.step",
       "vrml": "fusion.wrl"
     },
     "page_layout_descr_file": ""

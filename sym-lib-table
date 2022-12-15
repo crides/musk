@@ -4,4 +4,5 @@
   (lib (name "mcu")(type "KiCad")(uri "${KIPRJMOD}/kleeb/mcu.kicad_sym")(options "")(descr ""))
   (lib (name "ic")(type "KiCad")(uri "${KIPRJMOD}/kleeb/ic.kicad_sym")(options "")(descr ""))
   (lib (name "switch")(type "KiCad")(uri "${KIPRJMOD}/kleeb/switch.kicad_sym")(options "")(descr ""))
+  (lib (name "sensor")(type "KiCad")(uri "${KIPRJMOD}/kleeb/sensor.kicad_sym")(options "")(descr ""))
 )
