@@ -384,7 +384,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "musk.step",
+      "step": "up.step",
       "vrml": "fusion.wrl"
     },
     "page_layout_descr_file": ""
