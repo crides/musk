@@ -382,7 +382,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "musk.net",
       "specctra_dsn": "",
       "step": "up.step",
       "vrml": "fusion.wrl"
