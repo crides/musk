@@ -63,21 +63,24 @@ def gen_bottom():
 def gen_wheel_holder():
     screw_r, axle_r = 3, 2.5
     axle_t = 2
+    axle_end_t = 1
+    axle_or = axle_t + axle_r
     bot_hole, top_hole = sorted([board.pos(fp) for fp in board.fps() if fp.GetValue() == "wheel-hole"],
                                 key = lambda p: p[1])
     wheel_y = board.pos(encoder)[1]
+    holder = cq.Sketch().segment((0, 0), (11, 0)).arc((11, -axle_or), axle_or, 90, -180).segment((0, -2 * axle_or)).close().assemble()
     base = (cq.Workplane()
             .moveTo(bot_hole[0] + screw_r, wheel_y + axle_r + axle_t)
             .hLine(-2 * screw_r).vLineTo(top_hole[1] + screw_r).hLineTo(top_hole[0])
             .tangentArcPoint((0, - 2 * screw_r))
             .hLineTo(bot_hole[0] - screw_r).vLineTo(bot_hole[1])
             .tangentArcPoint((2 * screw_r, 0))
-            .close().extrude(3)
-            .faces(">Z").workplane().pushPoints([bot_hole, top_hole]).hole(m2_hole_d, 10)
-            .vertices(">Y").vertices("<X and <Z").workplane(centerOption="CenterOfMass").transformed((0, -90, 0))
-            .hLine(11).tangentArcPoint((0, -2 * (axle_r + axle_t))).hLine(-11).close()
-            .pushPoints([(11, -axle_t - axle_r)]).circle(axle_r)
-            .extrude(-screw_r * 2))
+            .close().extrude(4)
+            .faces(">Z").workplane()
+            .pushPoints([bot_hole]).rect(screw_r * 2, screw_r * 2).cutBlind(-2)
+            .pushPoints([bot_hole, top_hole]).hole(m2_hole_d, 10)
+            .vertices(">Y").vertices("<X and <Z").workplane(centerOption="CenterOfMass").transformed((0, -90, 0)))
+    base += base.placeSketch(holder).extrude(-axle_end_t) + base.placeSketch(holder.push([(11, -axle_or)]).circle(axle_r, mode="s")).extrude(-screw_r * 2)
     flash_court = board.courtyard("U1")
     return base - cq.Workplane().placeSketch(flash_court).extrude(board.height("U1", 2))
 
@@ -98,13 +101,13 @@ def gen_mouse_cut():
     cap = cq.Workplane().moveTo(cap[0], cap[1] - 2).rect(17, 25, centered=(True, False)).extrude(17)
     return sensor + small_comps + bat + cap
 
-# wheel_holder = gen_wheel_holder()
-# # cq.exporters.export(wheel_holder, "wheel_holder.step")
-# show_object(wheel_holder)
+wheel_holder = gen_wheel_holder()
+# cq.exporters.export(wheel_holder, "wheel_holder.step")
+show_object(wheel_holder)
 
-bottom = gen_bottom()
-cq.Assembly().add(bottom, color=cq.Color("gray40")).save("bottom.step")
-show_object(bottom)
+# bottom = gen_bottom()
+# cq.Assembly().add(bottom, color=cq.Color("gray40")).save("bottom.step")
+# show_object(bottom)
 
 # mouse_cut = gen_mouse_cut()
 # show_object(mouse_cut)
