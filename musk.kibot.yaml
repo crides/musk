@@ -1,0 +1,195 @@
+kibot:
+  version: 1
+
+filters:
+  - name: fix_rotation
+    comment: 'Adjust rotation for JLC'
+    type: rot_footprint
+    negative_bottom: true
+    rotations:
+      - ["^LED_WS2812B_PLCC.*", 180.0]
+      - ["^SMDIP-4.*", 180.0]
+      - ["^SOT-23", 0.0]
+      - ["^D_.*", 180.0]
+      - ["^TSSOP-24_.*", 90.0]
+
+  - name: only_jlc_parts
+    comment: 'Only parts with JLC code'
+    type: generic
+    include_only:
+      - column: 'LCSC Part Number'
+        regex: '^C\d+'
+
+  - name: mechanical_fixed
+    comment: 'Exclude mechanical, but fix for reverse mount LED'
+    type: generic
+    exclude_virtual: true
+    exclude_any:
+      - column: 'Ref'
+        regex: '^TP[0-9]*'
+      - column: 'Ref'
+        regex: '^FID'
+      - column: 'Part'
+        regex: '^mount.*hole'
+      - column: 'Part'
+        regex: 'solder.*bridge'
+      - column: 'Part'
+        regex: 'solder.*jump'
+      - column: 'Part'
+        regex: 'test.*point'
+      - column: 'FP'
+        regex: 'test.*point'
+      - column: 'FP'
+        regex: '^mount.*hole'
+      - column: 'FP'
+        regex: 'fiducial'
+
+variants:
+  - name: rotated
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: rotated
+    pre_transform: fix_rotation
+    exclude_filter: mechanical_fixed
+preflight:
+  set_text_variables:
+    - name: SHA1
+      command: git rev-parse --short HEAD
+    - name: TIMESTAMP
+      command: git log -1 --format='%as' -- $KIBOT_SCH_NAME
+
+outputs:
+  - name: cover-base
+    comment: Right side base outline for the 3D printed covers
+    type: dxf
+    layers: ["User.Eco1"]
+    run_by_default: false
+    output_id: "cover-base"
+    options:
+      output: "%f-%I.%x"
+      use_aux_axis_as_origin: true
+      metric_units: true
+      drill_marks: none
+      plot_footprint_refs: false
+      plot_footprint_values: false
+      polygon_mode: false
+
+  - name: jlc-gerbers
+    comment: Gerbers compatible with JLCPCB
+    type: gerber
+    dir: fab-jlc
+    options: &gerber_options
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: false
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      use_protel_extensions: true
+      create_gerber_job_file: false
+      disable_aperture_macros: true
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+      line_width: 0.1
+      subtract_mask_from_silk: true
+      inner_extension_pattern: '.gp%n'
+    layers:
+      - F.Cu
+      - B.Cu
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - Edge.Cuts
+
+  - name: jlc-drill
+    comment: Drill files compatible with JLCPCB
+    type: excellon
+    dir: fab-jlc
+    options:
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: true
+      # map: gerber
+      route_mode_for_oval_holes: false
+      output: "%f%i.%x"
+
+  - name: jlc
+    comment: ZIP file for JLCPCB
+    type: compress
+    dir: fab-jlc
+    options:
+      files:
+        - from_output: jlc-gerbers
+          dest: /
+        - from_output: jlc-drill
+          dest: /
+      move_files: true
+
+  - name: jlc-pos
+    comment: Pick and place position file compatible with JLCPCB
+    type: position
+    dir: fab-jlc
+    options:
+      variant: rotated
+      output: 'main-pos-jlc.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      only_smd: true
+      use_aux_axis_as_origin: false
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: jlc-bom
+    comment: "BoM for JLC"
+    type: bom
+    dir: fab-jlc
+    options:
+      output: 'main-%i-jlc.%x'
+      ref_separator: ','
+      group_fields: ['Value', 'Footprint', 'lcsc-part']
+      columns:
+        - field: Value
+          name: Comment
+        - field: References
+          name: Designator
+        - field: Footprint
+          name: Footprint
+        - field: 'lcsc-part'
+          name: 'LCSC Part #'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
+
+  - name: ibom
+    comment: "Interactive BOM for Hand Assembly"
+    type: ibom
+    run_by_default: false
+    options:
+      dark_mode: true
+      layer_view: 'F'
+
+  - name: step
+    comment: 3D model in STEP format
+    type: step
+    run_by_default: false
+    options:
+      output: "%f.%x"
+      download: false
+      origin: drill
