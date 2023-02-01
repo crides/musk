@@ -1,4 +1,5 @@
 from functools import reduce
+import math
 from typing import Callable, Tuple, TypeVar
 import pcbnew, cadquery as cq
 from kicaq import *
@@ -58,14 +59,26 @@ def gen_bottom():
               .placeSketch(mouse_hole).cutBlind(-2).moveTo(0, 0)
               .placeSketch(board.convert_shape(edge_holes)).cutThruAll()
               .moveTo(*avg_center).slot2D(9 + abs(optic_center[1] - real_optic_center[1]), 6, 90).cutThruAll())
+    def gen_led_groove():
+        offset = math.sqrt(1 ** 2 - 0.5 ** 2)
+        cut = cq.Edge.makeLine((14.5, -8), (6.5, 50.5))
+        cut = cq.Edge.makeLine(cut.positionAt(-100), cut.positionAt(100))
+        left_wire = (cq.Wire.assembleEdges([e for e in board.edges().faces("<Y").val().outerWire().offset2D(offset)[0]
+                                           .split(cut).Edges() if e.Center().x < 3])
+                     .translate((0, 0, -0.5 - 1.6)))
+        return cq.Workplane("ZY", (-14.5, -8 - offset, -0.5 - 1.6)).circle(1).sweep(left_wire)
+    bottom -= gen_led_groove()
     flip = lambda hs: [(h[0], -h[1]) for h in hs]
     bore, hollow = partition(holes, lambda h: bottom.val().facesIntersectedByLine((*h, -100), (0,0,1)) != [])
     bottom = (bottom.faces("<Z").workplane()
             .pushPoints(flip(bore)).cboreHole(m2_hole_d, 5, 2))
     if hollow:
-        return bottom.pushPoints(flip(hollow)).hole(5, 10)
-    else:
-        return bottom
+        bottom = bottom.pushPoints(flip(hollow)).hole(5, 10)
+
+    led_hole = cq.Workplane().circle(1.2).extrude(-2).rect(1, 10, centered=(True, False)).extrude(-1.2)
+    bottom -= led_hole.translate(board.pos("TP2"))
+    bottom -= led_hole.rotate((0,0,0), (0,0,1), 180).translate(board.pos("TP1"))
+    return bottom
 
 def gen_mouse_cut():
     k1_p = board.pos("K1")
@@ -99,8 +112,9 @@ def gen_top():
         ("U3", "C3", "C9"),
         ("R1", "C2", "L1"),
         ("R10", "R9", "J2"),
-        ("JP1", "JP2", "C16", "U4"),
+        ("JP1", "JP2"), ("C16", "U4"),
         ("U5", "C4", "C5", "C6", "R7", "R8"),
+        ("Q1", "R15", "R16"),
     ]
     # right_board = board.layer_raw(pcbnew.Cmts_User)[0]
     right_edge = board.x(min(g.GetStartX() for g in board.layer_raw_of("K1", pcbnew.Dwgs_User))) - 0.2
@@ -110,7 +124,7 @@ def gen_top():
            .pushPoints([bot_hole, top_hole]).cboreHole(m2_hole_d, 5, 3)
            .moveTo(0, 0) + holder)
     wheel_hole = max(edge_holes, key=lambda r: r.GetCenter().y)
-    top -= cq.Workplane().transformed(offset=(*board.p(wheel_hole.GetCenter()), 11)).transformed((0, 90, 0)).cylinder(iu2mm(abs(wheel_hole.GetStartX() - wheel_hole.GetEndX())), 13)
+    top -= cq.Workplane().transformed(offset=(*board.p(wheel_hole.GetCenter()), 11)).transformed((0, 90, 0)).cylinder(iu2mm(abs(wheel_hole.GetStartX() - wheel_hole.GetEndX())), 12.8)
     group_all = [i for g in groups for i in g]
     alone = board.fps_where(lambda fp: board.ref(fp) not in group_all and fp.GetValue() != "wheel-hole")
     for a in alone:
@@ -128,13 +142,14 @@ def gen_top():
         top -= cq.Workplane().placeSketch(cq.Sketch().push([pos]).rect(w, h)).extrude(max(board.max_height({}, 2, fps), 1))
     return top
 
-# bottom = gen_bottom()
-# cq.Assembly().add(bottom, color=cq.Color("darkseagreen1")).save("bottom.step")
-# show_object(bottom)
+if "show_object" in locals():
+    bottom = gen_bottom()
+    cq.Assembly().add(bottom, color=cq.Color("darkseagreen1")).save("bottom.step")
+    show_object(bottom)
 
-# mouse_cut = gen_mouse_cut()
-# show_object(mouse_cut)
+    # mouse_cut = gen_mouse_cut()
+    # show_object(mouse_cut)
 
-top = gen_top()
-cq.Assembly().add(top, color=cq.Color("darkseagreen1")).save("top.step")
-show_object(top)
+    top = gen_top()
+    cq.Assembly().add(top, color=cq.Color("darkseagreen1")).save("top.step")
+    show_object(top)
