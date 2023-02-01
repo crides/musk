@@ -59,21 +59,6 @@ preflight:
       command: git log -1 --format='%as' -- $KIBOT_SCH_NAME
 
 outputs:
-  - name: cover-base
-    comment: Right side base outline for the 3D printed covers
-    type: dxf
-    layers: ["User.Eco1"]
-    run_by_default: false
-    output_id: "cover-base"
-    options:
-      output: "%f-%I.%x"
-      use_aux_axis_as_origin: true
-      metric_units: true
-      drill_marks: none
-      plot_footprint_refs: false
-      plot_footprint_values: false
-      polygon_mode: false
-
   - name: jlc-gerbers
     comment: Gerbers compatible with JLCPCB
     type: gerber
@@ -162,7 +147,7 @@ outputs:
     options:
       output: 'main-%i-jlc.%x'
       ref_separator: ','
-      group_fields: ['Value', 'Footprint', 'lcsc-part']
+      group_fields: ['Value', 'lcsc-part']
       columns:
         - field: Value
           name: Comment
